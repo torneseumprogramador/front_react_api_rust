@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Paginas/Login';
-import Alunos from './Paginas/Alunos';
+import ListaAlunos from './Paginas/Alunos/Lista';
+import NovoAluno from './Paginas/Alunos/Novo';
+import EditarAluno from './Paginas/Alunos/Editar';
 import Home from './Paginas/Home';
-import { AuthGuard } from './Utils/AuthGuard'; // Importe o AuthGuard
+import { AuthGuard } from './Utils/AuthGuard';
 import './App.css'
 
 function App() {
@@ -18,7 +20,17 @@ function App() {
         } />
         <Route path="/alunos" element={
           <AuthGuard>
-            <Alunos />
+            <ListaAlunos />
+          </AuthGuard>
+        } />
+        <Route path="/alunos/novo" element={
+          <AuthGuard>
+            <NovoAluno />
+          </AuthGuard>
+        } />
+        <Route path="/alunos/:id/editar" element={
+          <AuthGuard>
+            <EditarAluno />
           </AuthGuard>
         } />
       </Routes>

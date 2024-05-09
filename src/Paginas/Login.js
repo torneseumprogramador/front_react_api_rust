@@ -21,7 +21,6 @@ function Login() {
       storeUserData(userData);
       navigate('/');;
     } catch (error) {
-      console.log(error)
       setError(error.response?.data.mensagem || 'Ocorreu um erro ao tentar fazer login.');
     } finally {
       setIsLoading(false);  // Termina o carregamento
